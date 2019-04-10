@@ -9,7 +9,7 @@ public class PlayFabLogin : MonoBehaviour
         //Note: Setting title Id here can be skipped if you have set the value in Editor Extensions already.
         if (string.IsNullOrEmpty(PlayFabSettings.TitleId))
         {
-            PlayFabSettings.TitleId = "My Game"; // Please change this value to your own titleId from PlayFab Game Manager
+            PlayFabSettings.TitleId = "6D6C3"; // Please change this value to your own titleId from PlayFab Game Manager
         }
         var request = new LoginWithCustomIDRequest { CustomId = "GettingStartedGuide", CreateAccount = true };
         PlayFabClientAPI.LoginWithCustomID(request, OnLoginSuccess, OnLoginFailure);
