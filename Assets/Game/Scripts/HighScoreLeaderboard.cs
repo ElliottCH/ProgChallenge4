@@ -29,7 +29,7 @@ public class HighScoreLeaderboard : MonoBehaviour
 
     public void PostHighScore()
     {
-        int score = -1;
+        int score = 0;
         if (int.TryParse(highScoreText.text, out score) == false)
         {
             Debug.Log("ERROR: High score is not a number");
@@ -41,7 +41,7 @@ public class HighScoreLeaderboard : MonoBehaviour
             {
                 Statistics = new List<StatisticUpdate>()
                 {
-                    new StatisticUpdate() { StatisticName = "high_score", Value = score}
+                    new StatisticUpdate() { StatisticName = "playerHighScore", Value = score}
                 }
             },
             OnUpdatePlayerStatisticsResponse,
@@ -64,7 +64,7 @@ public class HighScoreLeaderboard : MonoBehaviour
         PlayFabClientAPI.GetLeaderboard(
             new GetLeaderboardRequest()
             {
-                StatisticName = "high_score",
+                StatisticName = "playerHighScore",
                 StartPosition = 0,
                 MaxResultsCount = 5      
             },

@@ -17,6 +17,7 @@ using System.Threading.Tasks;
 
     int currentIndex = -1;
 
+    public Pokemon pokemon;
 
     Texture2D texture;
     private void Start()
@@ -33,6 +34,7 @@ using System.Threading.Tasks;
             if (value > 0 && currentIndex != value)
             {
                 currentIndex = value;
+                pokemon.id = value;
                 StartCoroutine(ChangePokemonImage());
             }
         }

@@ -60,6 +60,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Game\Scripts\Analytics.cs" />
     <Compile Include="Assets\Game\Scripts\Core\LocationServicesController.cs" />
     <Compile Include="Assets\Game\Scripts\Core\Singleton.cs" />
     <Compile Include="Assets\Game\Scripts\Core\WeatherController.cs" />

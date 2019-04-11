@@ -438,6 +438,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   inputField: {fileID: 719576822}
   pokeImage: {fileID: 1061936779}
+  pokemon:
+    id: 0
+    name: 
+    sprites:
+      front_default: 
 --- !u!1 &226983285
 GameObject:
   m_ObjectHideFlags: 0
@@ -451,6 +456,7 @@ GameObject:
   - component: {fileID: 226983287}
   - component: {fileID: 226983286}
   - component: {fileID: 226983290}
+  - component: {fileID: 226983291}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -551,8 +557,29 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5593b29acce4baf4b8caff420223207b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  inputField: {fileID: 0}
-  pokeImage: {fileID: 0}
+  inputField: {fileID: 719576822}
+  pokeImage: {fileID: 1061936779}
+  pokemon:
+    id: 0
+    name: 
+    sprites:
+      front_default: 
+--- !u!114 &226983291
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 226983285}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e55c5b2477f6e9f488189db17e07d7b3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  location: {fileID: 0}
+  highScore: {fileID: 0}
+  controller: {fileID: 0}
+  score: 0
 --- !u!1 &294222527
 GameObject:
   m_ObjectHideFlags: 0
@@ -1453,7 +1480,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1052445161}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 226983291}
+        m_MethodName: Catch
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &1052445161
@@ -1743,7 +1781,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1520191249
 RectTransform:
   m_ObjectHideFlags: 0
