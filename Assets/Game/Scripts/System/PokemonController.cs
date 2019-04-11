@@ -55,7 +55,7 @@ using System.Threading.Tasks;
         string name = pokemon.name;
         Debug.Log(name);
 
-        UnityWebRequest www = UnityWebRequest.Get("https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/1.png");
+        UnityWebRequest www = UnityWebRequest.Get("https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/"+pokemon.id+".png");
         yield return www.SendWebRequest();
 
         if (www.isNetworkError || www.isHttpError)

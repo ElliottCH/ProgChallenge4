@@ -9,13 +9,14 @@ public class HighScoreLeaderboard : MonoBehaviour
 {
     public InputField highScoreText;
     public Button postHighScoreButton;
-
+    int score;
 
     // Start is called before the first frame update
     void Start()
     {
         highScoreText.enabled = false;
         postHighScoreButton.enabled = false;
+        score = 1;
     }
 
     private void FixedUpdate()
@@ -29,13 +30,13 @@ public class HighScoreLeaderboard : MonoBehaviour
 
     public void PostHighScore()
     {
-        int score = 0;
-        if (int.TryParse(highScoreText.text, out score) == false)
-        {
-            Debug.Log("ERROR: High score is not a number");
-            return;
-        }
-
+        //int score = 0;
+        //if (int.TryParse(highScoreText.text, out score) == false)
+        //{
+        //    Debug.Log("ERROR: High score is not a number");
+        //    return;
+        //}
+        score++;
         PlayFabClientAPI.UpdatePlayerStatistics(
             new UpdatePlayerStatisticsRequest
             {

@@ -14,6 +14,8 @@ public class Analytics : MonoBehaviour
     void Start()
     {
         score = 0;
+        location = GetComponent<LocationServicesController>();
+        highScore = GetComponent<HighScoreLeaderboard>();
     }
 
     // Update is called once per frame
