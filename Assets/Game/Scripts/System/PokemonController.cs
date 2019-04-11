@@ -7,7 +7,7 @@ using System.Net;
 using System.IO;
 using System.Threading.Tasks;
 
-public class PokemonController : MonoBehaviour
+    public class PokemonController : MonoBehaviour
 {
     private string URL = "https://pokeapi.co/api/v2/pokemon/{0}/";
 
@@ -16,25 +16,23 @@ public class PokemonController : MonoBehaviour
     public Image pokeImage;
 
     int currentIndex = -1;
-    
-    private bool isLookingForPokemon = false;
-    // Start is called before the first frame update
-    Texture2D tex;
+
+
+    Texture2D texture;
     private void Start()
     {
-        tex = new Texture2D(96, 96);
+        texture = new Texture2D(96, 96);
     }
 
-    public void FixedUpdate()
+    public void Search()
     {
         if (inputField != null)
         {
             int value = 0;
             int.TryParse(inputField.text, out value);
-            if (isLookingForPokemon == false && value > 0 && currentIndex != value)
+            if (value > 0 && currentIndex != value)
             {
                 currentIndex = value;
-                isLookingForPokemon = true;
                 StartCoroutine(ChangePokemonImage());
             }
         }
@@ -67,11 +65,23 @@ public class PokemonController : MonoBehaviour
             Debug.Log(www.downloadHandler.text);
 
             byte[] results = www.downloadHandler.data;
-            tex.LoadImage(results);
+            texture.LoadImage(results);
 
-            pokeImage.sprite = Sprite.Create(tex, new Rect(0.0f, 0.0f, tex.width, tex.height), new Vector2(0.5f, 0.5f), 100.0f);
+            pokeImage.sprite = Sprite.Create(texture, new Rect(0.0f, 0.0f, texture.width, texture.height), new Vector2(0.5f, 0.5f), 100.0f);
         }
 
-        isLookingForPokemon = false;
+    }
+    [System.Serializable]
+    public class Pokemon
+    {
+        public int id;
+        public string name;
+        public PokeSprite sprites;
+    }
+
+    [System.Serializable]
+    public class PokeSprite
+    {
+        public string front_default;
     }
 }

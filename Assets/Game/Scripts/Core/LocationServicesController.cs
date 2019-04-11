@@ -5,13 +5,13 @@ using UnityEngine.UI;
 
 public class LocationServicesController : MonoBehaviour
 {
-    public Text longitudeText;
-    public Text latitudeText;
+    public string longitudeText;
+    public string latitudeText;
 
     void Start()
     {
-        longitudeText.text = "";
-        latitudeText.text = "";
+        longitudeText = "";
+        latitudeText = "";
         StartCoroutine(LocationServiceUpdate());
     }
 
@@ -28,19 +28,19 @@ public class LocationServicesController : MonoBehaviour
 
         if (waitTime <= 0)
         {
-            longitudeText.text = "Timed out";
+            longitudeText = "Timed out";
             yield break;
         }
 
         if (Input.location.status == LocationServiceStatus.Failed)
         {
-            longitudeText.text = "Failed to determine device location";
+            longitudeText = "Failed to determine device location";
             yield break;
         }
         else
         {
-            longitudeText.text = Input.location.lastData.longitude.ToString();
-            latitudeText.text = Input.location.lastData.latitude.ToString();
+            longitudeText = Input.location.lastData.longitude.ToString();
+            latitudeText = Input.location.lastData.latitude.ToString();
         }
 
         Input.location.Stop();
